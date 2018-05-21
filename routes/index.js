@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const {models} = require('../models');
-const Sequelize = require('Sequelize');
+//const Sequelize = require('Sequelize');xdvxcvxcvvx
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -19,11 +19,7 @@ router.get('/quizzes',  function(req, res, next) {
 	then( quizzes=> {
 		res.render('quizzes', {quizzes});	
 	})
-	.catch(Sequelize.ValidationError, error => {
-		
-	})
-	.catch(error => {
-	});
+	.catch(error => next(error));
 	
 });
 
